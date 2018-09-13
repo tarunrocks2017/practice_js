@@ -11,11 +11,11 @@
 
 </header>
 <section class="section1">
-	<a href="#"><div class="left-button button" onclick="myMove()">
+	<a href="#"><div class="left-button button" onclick="myRightMove()">
 		<span>></span>
 
 	</div></a>
-<a href="#"><div class="right-button button" onclick="myRightMove()"></div></a>
+<a href="#"><div class="right-button button" onclick="myMove()"></div></a>
 	<div class="slider" id="image" onclick="myMove()">
 		<img src="images/school.png" alt="no image availabe"  id="school" class="images"/>
 		<img src="images/school2.jpg" alt="hello buddy"  id="school1" class="images"/>
