@@ -1,0 +1,118 @@
+// html part //
+
+<!doctype html>
+<html lang="en">
+<head>
+<script async type="text/javascript" src="scripts/index.js"></script>
+<link rel="stylesheet" href="styles/index.css"/>
+</head>
+<body>
+<header class="header" id="stick">
+
+</header>
+<section class="section1">
+	<a href="#"><div class="left-button button" onclick="myMove()">
+		<span>></span>
+
+	</div></a>
+<a href="#"><div class="right-button button" onclick="myRightMove()"></div></a>
+	<div class="slider" id="image" onclick="myMove()">
+		<img src="images/school.png" alt="no image availabe"  id="school" class="images"/>
+		<img src="images/school2.jpg" alt="hello buddy"  id="school1" class="images"/>
+		<img src="images/school3.jpg" alt="hii buddy" id="school2" class="images"/>
+	</div>
+</section>
+<section>
+	<div class="zoom">
+		<img src="images/school.png" id="zom-img"/>
+	</div>
+</section>
+</body>
+</html>
+
+
+// style part //
+
+.section1{
+	height:1000px;
+	width:100%;
+	position:relative;
+	top:100px;
+	margin-top:5px;
+	margin-bottom:5px;
+	border:2px solid black;
+	overflow:hidden;
+}
+.slider{
+	height:100%;
+	width:300vw;
+	padding:0;
+	position:absolute;
+}
+.images{
+	height:100%;
+	width:99vw;
+}
+.button{
+	height:50px;
+	width:50px;
+	background-color:black;
+	z-index:1000;
+}
+.left-button{
+	position:absolute;
+	top:40%;
+	left:5%;
+}
+.right-button{
+	position:absolute;
+	top:40%;
+	right:5%;
+}
+
+// javascript part //
+
+var count = 0 ;
+var wid = screen.width ;
+function myMove() {
+	var pos = count;
+  var elem = document.getElementById("image");   
+  var id = setInterval(frame,0);
+  function frame() {
+    if (pos < -(wid*2)) {
+		count = -(wid*2);
+      clearInterval(id);
+	}
+	if(pos == -(wid + count)){
+		console.log(pos+" "+count+" "+wid);
+		count = -(wid + count);
+		clearInterval(id);
+	}else {
+      pos = pos -5; 
+      elem.style.left = pos + 'px'; 
+    }
+	  
+  }
+}
+function myRightMove() {
+	var pos = count;
+  var elem = document.getElementById("image");   
+  var id = setInterval(frame,0);
+  function frame() {
+	  
+    if (pos > 0) {
+		count = 0 ;
+      clearInterval(id);
+	}
+	if(pos == (wid + count)){
+		count = (wid + count);
+		clearInterval(id);
+	}else {
+      pos = pos + 5; 
+	  
+      elem.style.left = pos + 'px';
+	  	  
+    }
+	  
+  }
+}
